@@ -76,7 +76,7 @@ class AbsoluteManageExport(Processor):
                 self.output("[+] Failed to create [%s] Please check your permissions and try again. Error [%s]"  (dest_dir, err))
 
         try:
-            subprocess.check_output([self.appleSingleTool, "encode", "-s", source_dir, "-t", dest_dir + "/Payloads/" + self.unique_id])
+            subprocess.check_output([self.appleSingleTool, "encode", "-s", source_dir, "-t", dest_dir + "/Payloads/" + self.unique_id, "-p", "-x", "-z", "3"])
 
         except (subprocess.CalledProcessError, OSError), err:
             raise err
